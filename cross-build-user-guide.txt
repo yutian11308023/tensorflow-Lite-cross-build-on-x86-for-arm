@@ -1,0 +1,32 @@
+cross-build tensorflow user guide.
+
+refer to https://www.tensorflow.org/lite/rpi  
+
+1. Installing the toolchain
+sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+2. Clone this Tensorflow repository
+git clone https://github.com/tensorflow/tensorflow
+
+3. Run this script at the root of the repository to download all the dependencies
+./tensorflow/contrib/lite/tools/make/download_dependencies.sh
+Note that you only need to do this once.
+
+4. Modify the target compilation platform in ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh. 
+set TARGET=aarch64 TARGET_ARCH=arm
+
+5. Modify the cross-build toolchain in ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh.
+set CC_PREFIX=aarch64-linux-gnu-
+
+6. Replace ./tensorflow/contrib/lite/tools/make/Makefile with the newly modified Makefile.
+The build_rpi_lib.sh script in the previous two steps is actually called ./tensorflow/contrib/lite/tools/make/Makefile to compile the Tensorflow Lite source,
+but the Makefile does not compile the demo in the tensorflow/contrib/lite/examples/label_image directory, 
+so Modify the Makefile to configure the source code of label_image to the Makefile. For the modification, refer to the configuration of MINIMAL Demo in the Makefile.
+
+7. You should then be able to compile.
+./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
+
+8. This should compile a static library in: tensorflow/contrib/lite/tools/make/gen/aarch64_arm/lib/libtensorflow-lite.a
+   And binary files: benchmark_model  label_image  minimal in the tensorflow/contrib/lite/tools/make/gen/aarch64_arm/bin directory.
+   
+9. Finally, you can test it on the aarch64 platforms. 
