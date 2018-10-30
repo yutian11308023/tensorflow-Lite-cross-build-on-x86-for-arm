@@ -16,7 +16,7 @@ RUN apt-get install git
 RUN git clone https://github.com/tensorflow/tensorflow
 
 WORKDIR tensorflow
-RUN apt-get install curl
+RUN apt-get install -y curl
 RUN ./tensorflow/contrib/lite/tools/make/download_dependencies.sh
 ADD build_rpi_lib.sh ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
 ADD Makefile ./tensorflow/contrib/lite/tools/make/Makefile
