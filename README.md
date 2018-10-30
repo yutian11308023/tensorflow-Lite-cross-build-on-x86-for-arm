@@ -9,7 +9,7 @@ copyright@tian.yu_1@nxp.com
 docker import - base-x86-os < base-x86-os.tar
 
 3. run the dockerfile to build tensorflow automatically  
-docker run build -t your-image-name --network=host .
+docker build -t your-image-name --network=host .
 
 4. after the build suceessfully, you can get the tensorflow wheel package on your local directory.
 
