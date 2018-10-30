@@ -1,4 +1,4 @@
-FROM devops.nxp.com/face-recognition-server-x86:2018-4-18
+FROM base-x86-os:latest
 
 #RUN echo "Asia/Shanghai" > /etc/timezone;dpkg-reconfigure -f noninteractive tzdata
 
