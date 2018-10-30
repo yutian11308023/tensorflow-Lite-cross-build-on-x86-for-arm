@@ -18,4 +18,4 @@ RUN ./tensorflow/contrib/lite/tools/make/download_dependencies.sh
 ADD build_rpi_lib.sh ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
 ADD Makefile ./tensorflow/contrib/lite/tools/make/Makefile
 RUN ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
-WORKDIR ./tensorflow/contrib/lite/tools/make/gen/aarch64-arm/lib/
+WORKDIR ./tensorflow/contrib/lite/tools/make/gen/aarch64_arm/lib/
