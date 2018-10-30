@@ -12,6 +12,7 @@ WORKDIR /app
 RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu 
 RUN apt-get update
 
+RUN apt-get install git
 RUN git clone https://github.com/tensorflow/tensorflow
 WORKDIR tensorflow
 RUN ./tensorflow/contrib/lite/tools/make/download_dependencies.sh
