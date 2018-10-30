@@ -22,4 +22,4 @@ ADD build_rpi_lib.sh ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
 ADD Makefile ./tensorflow/contrib/lite/tools/make/Makefile
 RUN ./tensorflow/contrib/lite/tools/make/build_rpi_lib.sh
 WORKDIR ./tensorflow/contrib/lite/tools/make/gen/aarch64_arm/
-RUN scp ./lib/libtensorflow-lite.a yutian@10.192.208.71:/home/yutian/mydocker/tflite/
+
